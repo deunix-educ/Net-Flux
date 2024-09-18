@@ -1,0 +1,7 @@
+aiohttp
+aiohttp-jinja2
+pyyaml
+mss
+paho-mqtt
+opencv-python-headless
+selenium

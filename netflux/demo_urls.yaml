@@ -1,0 +1,14 @@
+timeout: 5
+urls: [
+    https://www.lemonde.fr/,
+    https://boutique.lemonde.fr/,
+    https://ateliers.lemonde.fr/,
+    https://www.lemonde.fr/le-monde-evenements/,
+    https://www.huffingtonpost.fr/,
+    https://www.nouvelobs.com/;
+    https://www.monde-diplomatique.fr/,
+    https://sdllemonde.fr/,
+    https://www.lemonde.fr/le-club-de-l-economie/,
+    https://carnet.lemonde.fr/annonce,
+    
+]

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<img class="screen-uuid w3-image"/>
+{% endblock %}
+
+{% block js_footer %}
+<script>
+    let _uuid = null;
+    let _select = null;
+    
+	function topicToJson(topic)    { var topics = topic.split('/');  return { org:topics[0], uuid:topics[1], evt:topics[2], title:topics[3] }; }
+	function setUUID(uuid)         { _uuid = uuid; }
+    function updateUUID(uuid, el)  {
+         if (_select != el) {
+            _select = el;
+            $("#_uuid").html(JSON.parse(_select));
+            if (! _uuid) { _uuid = uuid; }
+        }   
+    }
+	
+	function onMessageCallback(e) {
+	    try {
+	        var message = JSON.parse(e.data);
+	        var args = topicToJson(message.topic);
+	        if (args.evt=='screen') {
+                updateUUID(args.uuid, message.html);
+                if (args.uuid == _uuid) {
+	               $("img.screen-uuid").attr('src', message.payload);
+	            }
+	        }
+	    } catch(e) {console.log(e);}
+	}
+	
+    wsObject = new WebsocketClass( {
+	    pathname: '/ws',
+	    onMessageCallback: onMessageCallback,
+	    onOpenCallback:  function(){$('i.ws-status').removeClass('w3-text-red').addClass('w3-text-green'); },
+	    onCloseCallback: function(){$('i.ws-status').removeClass('w3-text-green').addClass('w3-text-red');},
+    });	
+	wsObject.connect();
+</script>
+{% endblock %}
