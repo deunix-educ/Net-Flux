@@ -3,7 +3,7 @@ Panneaux de signalisation ultra simple sur réseau local ou public
 
 #### Objectif:
 Panneaux de signalisation principalement, mais aussi publier et/ou recevoir des contenus issus d'autres machines sur le réseau local ou public.<br>
-Les contenus sont en fait des captures d'écrans complètes ou partielles.br>
+Les contenus sont en fait des captures d'écrans complètes ou partielles.<br>
 Les machines sont clientes et/ou serveurs situées indifféremment sur le réseau local ou public<br>
 Un simple navigateur et une ip locale suffiont pour gérer cette affaire.
 

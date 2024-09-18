@@ -3,7 +3,7 @@ Ultra simple signage boards in the local or public network
 
 #### Objective:
 Mainly signage boards, but also publish and/or receive content from other machines on the local or public network.<br>
-The contents are in fact complete or partial screenshots.br>
+The contents are in fact complete or partial screenshots.<br>
 The machines are clients and/or servers located indifferently on the local or public network<br>
 A simple browser and a local IP will be enough to manage this matter.
 
