@@ -1,7 +1,7 @@
 mqtt:
   ca_cert: null
   clean_session: true
-  host: 192.168.1.1
+  host: test.mosquitto.org
   keepalive: 60
   org: netflux
   password: 
@@ -11,7 +11,7 @@ mqtt:
   username: 
 screen:
   display: :0.0
-  fps: 5
+  fps: 1
   full_screen: true
   monitor:
     height: 960
@@ -19,7 +19,7 @@ screen:
     top: 0
     width: 1280
   monitor_number: 1
-  title: dmx
+  title: screen_title
   topic_base: 
   topic_subs:
   uuid: 
