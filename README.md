@@ -10,7 +10,7 @@ Un simple navigateur et une ip locale suffiont pour gérer cette affaire.
 #### Principe
 Il y a 2 modes de fonctionnement:<br>
  
-- Publication locale simpl
+- Publication locale simple
     - Une machine serveur, publie son écran localement en http://0.0.0.0:8080
     - Les clients visionnent en http://ip-du-server:8080
 
