@@ -15,17 +15,15 @@ apt -y install libnss3-tools
 
 # supervisor http access
 #
-if  [ "$INSTALL_SUPERVISOR" == "yes" ]; then
+
 if [ ! -e "/etc/supervisor/supervisord.conf.old" ]; then
 cp /etc/supervisor/supervisord.conf /etc/supervisor/supervisord.conf.old
-
 cat >> /etc/supervisor/supervisord.conf << EOF
 [inet_http_server]
 port=*:9001
 username=root
-password=minotoor
+password=toor
 EOF
-fi
 fi
 
 # local certification

@@ -1,0 +1,31 @@
+mqtt:
+  ca_cert: null
+  clean_session: true
+  host: 192.168.1.1
+  keepalive: 60
+  org: netflux
+  password: 
+  port: 1883
+  reconnect_timeout: 5
+  use_ssl: null
+  username: 
+screen:
+  display: :0.0
+  fps: 5
+  full_screen: true
+  monitor:
+    height: 960
+    left: 0
+    top: 0
+    width: 1280
+  monitor_number: 1
+  title: dmx
+  topic_base: 
+  topic_subs:
+  uuid: 
+server:
+  host: 0.0.0.0
+  port: 8080
+  topic_base:
+  topic_subs:
+  uuid: 

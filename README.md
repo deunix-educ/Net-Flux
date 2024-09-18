@@ -10,22 +10,20 @@ A simple browser and a local IP will be enough to manage this matter.
 #### Principle
 There are 2 operating modes:<br>
 
- - Simple local publication
+- Simple local publication
+    - A server machine publishes its screen locally in http://0.0.0.0:8080
+    - Clients view in http://ip-du-server:8080
 
-    -- A server machine publishes its screen locally in http://0.0.0.0:8080
-    -- Clients view in http://ip-du-server:8080
-
- - Publication by MQTT messaging
-
-    -- Client machines listen on the local address http://127.0.0.1:8080
-    -- Machines that publish their screen execute the capture service
+- Publication by MQTT messaging
+    - Client machines listen on the local address http://127.0.0.1:8080
+    - Machines that publish their screen execute the capture service
 
 There are 3 services:<br>
- - Simple local publication: ./webserver --handle capture
+- Simple local publication: ./webserver --handle capture
 
- - MQTT messaging clients: ./webserver --handle monitor
+- MQTT messaging clients: ./webserver --handle monitor
 
- - Publication by MQTT messaging, screenshot: ./snoop.py
+- Publication by MQTT messaging, screenshot: ./snoop.py
 
 Machines can be both listening or being listened to.<br>
 Under Linux, supervisor will be used to start or stop these services
