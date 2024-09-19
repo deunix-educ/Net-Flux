@@ -90,13 +90,14 @@ class MqttService(MqttBase):
         super().__init__(**p)
         self.register = {}
         self.html = ""
+        self.options = []
         
     def args(self, topic, key=None):
         topics = topic.split('/')
         return topics[self.ARGS.get(key)]
     
     def html_select(self):
-        html = ['<select onchange="setUUID($(this).val());">'] 
+        html = ['<select id="_uuidopt" onchange="setUUID($(this).val());">'] 
         for opt, lab in self.register.items():
             html.append(f'<option value="{opt}">{lab}</option>') 
         html.append("</select>") 
@@ -108,9 +109,9 @@ class MqttService(MqttBase):
         uuid = self.args(topic, 'uuid')
         if not uuid in self.register:
             self.register[uuid] = self.args(topic, 'title')
-            self.html = self.html_select()        
-        asyncio.run(self.ws_send(**{"topic": topic, "html": self.html, "payload": p}))
-
+            self.options.append(uuid)
+            self.html = self.html_select()      
+        asyncio.run(self.ws_send(**{"topic": topic, "html": self.html, 'options': json.dumps(self.options), "payload": p}))
     async def mqtt_start(self):
         self.client.connect_async(self.host, self.port, self.keepalive)
         self.client.loop_start()
@@ -140,7 +141,7 @@ class CaptureService(Grab):
                         buf = base64.b64encode(jpgframe)
                         payload = f'data:image/jpeg;base64,{buf.decode()}'
                         html = json.dumps(f'<span class="w3-text-amber">{self.title}<span>')             
-                        await self.ws_send(**{"topic": f'{self.topic}', "html": html, "payload": payload})                        
+                        await self.ws_send(**{"topic": f'{self.topic}', "html": html, 'options': None, "payload": payload})                        
                     await asyncio.sleep(self.frame_delay(begin_t))
                 except Exception as e:
                     logger.error(f"\Capture error {e}")        

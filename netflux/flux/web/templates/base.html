@@ -8,6 +8,18 @@
 <div class="w3-cell-row w3-dark-light w3-large">
     <div class="w3-cell w3-padding" style="width:48px"><i class="fa-solid fa-globe ws-status w3-text-red"></i></div>
     <div class="w3-cell">Net-Flux&nbsp;<span id="_uuid"></span></div>
-    <div class="w3-cell w3-right"><span class="w3-text-amber w3-small">&#9400;&nbsp;deunix&nbsp;</span></div>              
+    <div class="w3-cell w3-cell-middle w3-right">
+    
+        <select id="_rfsh" class="w3-small" onchange="refresh(Number($(this).val()));">
+            <option value="0" selected>Stop</option>
+            {% for i in range(5, 31, 5) %}
+            <option value="{{ i }}">{{ i }} s</option>
+            {% endfor %}
+        </select>
+        
+        <span class="w3-text-amber w3-small">&#9400;&nbsp;deunix&nbsp;</span>
+    </div>              
 </div>
 {% endblock %}
+    
+    
