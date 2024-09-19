@@ -158,7 +158,7 @@ Clients de messagerie MQTT en 192.168.1.20:8080<br>
  
  - Service à lancer<br>
    
-        ./webserver --handle monitor
+        ./webserver.py --handle monitor
 
  - Résultat avec chromium<br>
     - sur le serveur: http://127.0.0.1:8080
