@@ -13,7 +13,7 @@
     let timer = null;
     
     function tabLoop(timeout)      { window.clearTimeout(timer); timer=window.setTimeout(tabLoad, Number(timeout)*1000, tabLoop, timeout); }
-    function refresh(delay)        { console.log("Refresh: "+delay+"s"); tabLoop(delay); }  
+    function refresh(delay)        { console.log("Refresh: "+delay+"s"); delay==0 ? window.clearTimeout(timer): tabLoop(delay); }  
 	function topicToJson(topic)    { var topics = topic.split('/');  return { org:topics[0], uuid:topics[1], evt:topics[2], title:topics[3] }; }
 	function setUUID(uuid)         { _uuid = uuid; $("#_uuidopt").val(_uuid); }
     function tabLoad(cbk, timeout) { setUUID(_options[idx++]); if (idx >= _options.length) idx=0; return cbk && cbk(timeout); }	
