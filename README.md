@@ -20,14 +20,16 @@ Il y a 2 modes de fonctionnement:<br>
      
 Il y a 3 services:<br>
 
-- Publication local simple: ./webserver --handle capture
+- Publication local simple: ./webserver.py --handle capture
  
-- Clients de messagerie MQTT:  ./webserver --handle monitor
+- Clients de messagerie MQTT:  ./webserver.py --handle monitor
  
 - Publication par messagerie MQTT, capture d'écran: ./snoop.py
 
 Les machines peuvent être à la fois en écoute ou être écoutée.<br>
 Sous Linux on utilisera supervisor pour lancer ou stopper ces services<br>
+Tous les scripts sont en python3<br>
+L'affichage se fait uniquement depuis un seul fichier html flux/web/index.html facilement modifiable.
 
 
 #### Machines utilisées
@@ -35,6 +37,24 @@ Sous Linux on utilisera supervisor pour lancer ou stopper ces services<br>
 - Machines sous Linux de préférence, mais ce n'est pas obligatoire.
 - Raspberry pi 3, 4 5 sont l'idéal. 
 - Firefox, Chromium, Chrome et dérivés sont conseillés
+
+###### A propos des raspberry pi
+Prévoir un accès ssh pour installer VNC. Un écran branché n'est pas nécessaire.<br>
+Toutes les manipulations pourront alors se faire directement par VNC.
+
+##### Aperçu avec un raspberry pi4
+La machine est en 192.168.1.10:8080<br>
+Dans une console:<br>
+ - On lance ./webserver.py -- handle capture 
+ - ou bien supervisor dans un navigateur http://127.0.0.1:9001
+ 
+ - Lancer une présentation avec LibreOffice Impress<br>
+    - Les clients suivent cette présentation en http://192.168.1.10:8080
+    
+ - Capturer la webcam avec VLC
+    - visionnage en http://192.168.1.10:8080<br>
+
+etc...
 
 #### Installation
 Cloner ou télécharger le code depuis https://github.com/deunix-educ/Net-Flux
@@ -46,10 +66,10 @@ Cloner ou télécharger le code depuis https://github.com/deunix-educ/Net-Flux
         
         $> cd Net-Flux
 
-- Dans répertoire etc
-    - bin quelques utilitaires
-    - conf exemple de configuration pour un raspberry pi4
-    - install exemple d'installation système pour un raspberry pi4
+- Dans répertoire etc on trouve:
+    - bin: quelques utilitaires
+    - conf: exemple de configuration pour un raspberry pi4
+    - install: exemple d'installation système pour un raspberry pi4
     
 - Installer les packages suivants:
 

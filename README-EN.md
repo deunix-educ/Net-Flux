@@ -26,13 +26,32 @@ There are 3 services:<br>
 - Publication by MQTT messaging, screenshot: ./snoop.py
 
 Machines can be both listening or being listened to.<br>
-Under Linux, supervisor will be used to start or stop these services
+Under Linux, supervisor will be used to start or stop these services<br>
+All scripts are in python3<br>
+The display is done only from a single html file flux/web/index.html which is easily modifiable.
 
 #### Machines used
 
-- Linux machines preferred, but not mandatory.
-- Raspberry pi 3, 4 5 are ideal.
-- Firefox, Chromium, Chrome and derivatives are recommended
+ - Linux machines preferred, but not mandatory.
+ - Raspberry pi 3, 4 5 are ideal.
+ - Firefox, Chromium, Chrome and derivatives are recommended
+ 
+###### About raspberry pi
+Provide ssh access to install VNC. A connected screen is not necessary.<br>
+All manipulations can then be done directly by VNC.
+
+##### Preview with a raspberry pi4
+The machine is in 192.168.1.10:8080<br>
+In a console:<br>
+ - Run ./webserver.py -- handle capture
+ - or supervisor in a browser http://127.0.0.1:9001
+ - Launch a presentation with LibreOffice Impress<br>
+    - Clients follow this presentation in http://192.168.1.10:8080
+
+ - Capture the webcam with VLC
+    - viewing in http://192.168.1.10:8080<br>
+    
+etc...
 
 #### Installation
 
